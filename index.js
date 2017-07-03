@@ -46,7 +46,7 @@ function PN532(config) {
   };
 
   setTimeout(function(){
-    this.begin();
+    self.begin();
   }, 5000);
 }
 util.inherits(PN532, EventEmitter)
