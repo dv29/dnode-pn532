@@ -15,6 +15,7 @@ MISO = 24
 SCLK = 25
 
 print json.dumps({ 'message': 'begining', 'code': 1 })
+print("\n")
 
 if __name__ == '__main__':
     while True:
@@ -28,6 +29,7 @@ if __name__ == '__main__':
 
             elif(command == INIT): #{"command":"begin"}
                 print json.dumps({ 'message': 'init', 'code': 2 })
+                print("\n")
                 pn532 = PN532.PN532(cs=(d["CS"] or CS), sclk=(d["SCLK"] or SCLK), mosi=(d["MOSI"] or MOSI), miso=(d["MISO"] or MISO))
                 pn532.begin()
                 # Get the firmware version from the chip and print(it out.)
@@ -38,6 +40,7 @@ if __name__ == '__main__':
                     'rev': rev,
                     'support': support
                 }})
+                print("\n")
                 # Configure PN532 to communicate with MiFare cards.
                 pn532.SAM_configuration()
 
