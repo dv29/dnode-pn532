@@ -3,7 +3,6 @@ var path = require('path');
 var app = express();
 var http = require('http').Server(app);
 var PythonShell = require('python-shell');
-var sleep = require('sleep');
 
 // setup path root
 var publicPath = path.resolve(__dirname,'');
