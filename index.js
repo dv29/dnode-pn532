@@ -11,17 +11,17 @@ function pn532(config) {
   this.pyshell.on("close", function(close) {
     console.log("close: " + close);
   });
+  this.begin = function begin() {
+    payload = {
+      command: "init",
+      CS: 16,
+      MOSI: 20,
+      MISO: 19,
+      SCLK: 21
+    };
+    this.pyshell.send(JSON.stringify(payload));
+  };
 }
 
-pn532.prototype.begin = function begin() {
-  payload = {
-    command: "init",
-    CS: 16,
-    MOSI: 20,
-    MISO: 19,
-    SCLK: 21
-  };
-  this.pyshell.send(JSON.stringify(payload));
-};
 
 module.exports = pn532;
