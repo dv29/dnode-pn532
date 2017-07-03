@@ -10,9 +10,6 @@ function pn532(config) {
     switch (payload.code) {
       case 1:
         console.log("begning");
-        setTimeout(function (){
-          self.begin();
-        }, 5000);
         break;
       default:
         console.log(payload);
