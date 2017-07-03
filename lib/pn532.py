@@ -14,7 +14,7 @@ MOSI = 23
 MISO = 24
 SCLK = 25
 
-print("begining")
+print json.dumps({ 'message': 'begining', 'code': 1 })
 
 if __name__ == '__main__':
     while True:
@@ -28,7 +28,7 @@ if __name__ == '__main__':
             break
 
         elif(command == INIT): #{"command":"begin"}
-            print("python begin")
+            print json.dumps({ 'message': 'init', 'code': 2 })
             pn532 = PN532.PN532(cs=(d["CS"] or CS), sclk=(d["SCLK"] or SCLK), mosi=(d["MOSI"] or MOSI), miso=(d["MISO"] or MISO))
             pn532.begin()
             # Get the firmware version from the chip and print(it out.)
