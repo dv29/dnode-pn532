@@ -10,10 +10,6 @@ app.use(express.static(publicPath));
 const PN532 = require('./index');
 const pn532 = new PN532();
 
-setTimeout(function (){
-  pn532.begin();
-}, 5000);
-
 pn532.on('data', (data) => {
   console.log(data);
 });
@@ -24,13 +20,6 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
-});
-
-app.get('/command/:command', function(req, res){
-	console.log("command: " + req.params.command)
-	res.writeHead(200, {'Content-Type': 'application/json'});
-    res.write(JSON.stringify({'Error': 0}));
-    res.end();
 });
 
 http.listen(3000, function(){
