@@ -16,7 +16,6 @@ SCLK = 25
 
 print json.dumps({ 'message': 'begining', 'code': 1 })
 
-
 if __name__ == '__main__':
     while True:
         data = raw_input()

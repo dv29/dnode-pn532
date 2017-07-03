@@ -1,5 +1,6 @@
 var PythonShell = require("python-shell");
 const EventEmitter = require('events');
+const util = require('util');
 
 function PN532(config) {
   const self = this;
@@ -30,7 +31,7 @@ function PN532(config) {
     console.log("close: " + close);
   });
 
-  this.begin = function begin() {
+  this.begin = function() {
     payload = {
       command: "init",
       CS: 16,
