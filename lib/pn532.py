@@ -7,6 +7,7 @@ import Adafruit_PN532 as PN532
 
 # COMMANDS TO BE RECEIVED FORM TERMINAL
 BEGIN = "init"
+EXIT = "exit"
 
 CS   = 18
 MOSI = 23
