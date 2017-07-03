@@ -2,12 +2,7 @@ var PythonShell = require("python-shell");
 function pn532(config) {
   const self = this;
   console.log('instance created');
-  this.pyshell = PythonShell.run("./lib/pn532.py", (err, result) => {
-    console.error(err);
-    if(!err){
-      console.log(result);
-    }
-  });
+  this.pyshell = new PythonShell("./lib/pn532.py");
   // TODO: begin according to config provided
   this.pyshell.on("message", function(message) {
     console.log("receive: " + message);
