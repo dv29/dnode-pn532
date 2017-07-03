@@ -7,12 +7,16 @@ const http = require('http').Server(app);
 const publicPath = path.resolve(__dirname,'');
 app.use(express.static(publicPath));
 
-const pn532 = require('./index');
-const PN532 = new pn532();
+const PN532 = require('./index');
+const pn532 = new PN532();
 
 setTimeout(function (){
-  PN532.begin();
+  pn532.begin();
 }, 5000);
+
+pn532.on('data', (data) => {
+  console.log(data);
+});
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');

@@ -52,6 +52,6 @@ if __name__ == '__main__':
                         continue
 
                     print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
-                        'uid': uid.decode('utf-8'),
+                        'uid': binascii.hexlify(uid),
                     }})
                     time.sleep(0.5)

@@ -1,5 +1,7 @@
 var PythonShell = require("python-shell");
-function pn532(config) {
+const EventEmitter = require('events');
+
+function PN532(config) {
   const self = this;
   console.log('instance created');
   this.pyshell = new PythonShell("./lib/pn532.py");
@@ -10,6 +12,9 @@ function pn532(config) {
     switch (payload.code) {
       case 1:
         console.log("begning");
+        break;
+      case 4:
+        self.emit('data', message.data);
         break;
       default:
         console.log(payload);
@@ -36,8 +41,7 @@ function pn532(config) {
     console.log('this.begin');
     this.pyshell.send(JSON.stringify(payload));
   };
-
 }
+util.inherits(PN532, EventEmitter)
 
-
-module.exports = pn532;
+module.exports = PN532;
