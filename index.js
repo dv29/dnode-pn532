@@ -1,6 +1,7 @@
 var PythonShell = require("python-shell");
-function pn532(bar) {
+function pn532(config) {
   this.pyshell = new PythonShell("./lib/pn532.py");
+  // TODO: begin according to config provided
   this.pyshell.on("message", function(message) {
     // received a message sent from the Python script (a simple "print" statement)
     console.log("receive: " + message);
@@ -10,10 +11,10 @@ function pn532(bar) {
 pn532.prototype.begin = function begin() {
   payload = {
     command: "init",
-    CS: 18,
-    MOSI: 23,
-    MISO: 24,
-    SCLK: 25,
+    CS: 16,
+    MOSI: 20,
+    MISO: 19,
+    SCLK: 21
   };
   this.pyshell.send(JSON.stringify(payload));
 };
