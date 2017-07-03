@@ -19,6 +19,7 @@ if __name__ == '__main__':
         data = raw_input()
         print data
         d = json.loads(data)
+        print json.dumps(d)
         command = d["command"]
         if(command == EXIT): #{"command":"exit"}
             print("python: exit")
@@ -26,7 +27,6 @@ if __name__ == '__main__':
 
         elif(command == INIT): #{"command":"begin"}
             print("python begin")
-            print json.dumps(d)
             pn532 = PN532.PN532(cs=(d["CS"] or CS), sclk=(d["SCLK"] or SCLK), mosi=(d["MOSI"] or MOSI), miso=(d["MISO"] or MISO))
             pn532.begin()
             # Get the firmware version from the chip and print(it out.)
