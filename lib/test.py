@@ -15,8 +15,7 @@ MISO = 19
 SCLK = 21
 
 print("python begin")
-print json.dumps(d)
-pn532 = PN532.PN532(cs=(d["CS"] or CS), sclk=(d["SCLK"] or SCLK), mosi=(d["MOSI"] or MOSI), miso=(d["MISO"] or MISO))
+pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
 pn532.begin()
 # Get the firmware version from the chip and print(it out.)
 ic, ver, rev, support = pn532.get_firmware_version()
