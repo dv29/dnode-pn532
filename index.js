@@ -3,15 +3,12 @@ function pn532(config) {
   this.pyshell = new PythonShell("./lib/pn532.py");
   // TODO: begin according to config provided
   this.pyshell.on("message", function(message) {
-    // received a message sent from the Python script (a simple "print" statement)
     console.log("receive: " + message);
   });
   this.pyshell.on("error", function(err) {
-    // received a err sent from the Python script (a simple "print" statement)
-    console.log("err: " + err);
+    console.error("err: " + err);
   });
   this.pyshell.on("close", function(close) {
-    // received a close sent from the Python script (a simple "print" statement)
     console.log("close: " + close);
   });
 }
