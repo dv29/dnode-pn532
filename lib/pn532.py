@@ -6,7 +6,7 @@ import time
 import Adafruit_PN532 as PN532
 
 # COMMANDS TO BE RECEIVED FORM TERMINAL
-BEGIN = "init"
+INIT = "init"
 EXIT = "exit"
 
 CS   = 18

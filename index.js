@@ -6,6 +6,14 @@ function pn532(config) {
     // received a message sent from the Python script (a simple "print" statement)
     console.log("receive: " + message);
   });
+  this.pyshell.on("error", function(err) {
+    // received a err sent from the Python script (a simple "print" statement)
+    console.log("err: " + err);
+  });
+  this.pyshell.on("close", function(close) {
+    // received a close sent from the Python script (a simple "print" statement)
+    console.log("close: " + close);
+  });
 }
 
 pn532.prototype.begin = function begin() {
