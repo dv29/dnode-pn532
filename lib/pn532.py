@@ -1,6 +1,7 @@
 import binascii
 import sys
 import json
+import time
 
 import Adafruit_PN532 as PN532
 
@@ -62,3 +63,4 @@ if __name__ == '__main__':
                 # print('Wrote to block 4, exiting program!')
                 # # Exit the program to prevent continually writing to card.
                 # sys.exit(0)
+                time.sleep(15)
