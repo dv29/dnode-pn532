@@ -1,14 +1,18 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-var http = require('http').Server(app);
+const express = require('express');
+const path = require('path');
+const app = express();
+const http = require('http').Server(app);
 
 // setup path root
-var publicPath = path.resolve(__dirname,'');
+const publicPath = path.resolve(__dirname,'');
 app.use(express.static(publicPath));
 
-var pn532 = require('./index')
-var PN532 = new pn532()
+const pn532 = require('./index');
+const PN532 = new pn532();
+
+setTimeout(() => {
+  this.begin();
+}, 5000);
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
