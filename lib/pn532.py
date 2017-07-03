@@ -48,7 +48,8 @@ if __name__ == '__main__':
                     # Try again if no card is available.
                     if uid is None:
                         continue
+
                     print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
-                        'uid': uid,
+                        'uid': uid.decode('utf-8'),
                     }})
                     time.sleep(0.5)
