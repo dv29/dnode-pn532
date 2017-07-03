@@ -1,5 +1,6 @@
 var PythonShell = require("python-shell");
 function pn532(config) {
+  const self = this;
   console.log('instance created');
   this.pyshell = PythonShell.run("./lib/pn532.py", (err, result) => {
     console.error(err);
@@ -15,7 +16,7 @@ function pn532(config) {
       case 1:
         console.log("begning");
         setTimeout(function (){
-          this.begin();
+          self.begin();
         }, 5000);
         break;
       default:
@@ -31,19 +32,20 @@ function pn532(config) {
   this.pyshell.on("close", function(close) {
     console.log("close: " + close);
   });
-}
 
-this.prototype.begin = function begin() {
-  payload = {
-    command: "init",
-    CS: 16,
-    MOSI: 20,
-    MISO: 19,
-    SCLK: 21
+  this.begin = function begin() {
+    payload = {
+      command: "init",
+      CS: 16,
+      MOSI: 20,
+      MISO: 19,
+      SCLK: 21
+    };
+    console.log('this.begin');
+    this.pyshell.send(JSON.stringify(payload));
   };
-  console.log('this.begin');
-  this.pyshell.send(JSON.stringify(payload));
-};
+
+}
 
 
 module.exports = pn532;
