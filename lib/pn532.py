@@ -54,13 +54,4 @@ if __name__ == '__main__':
                     continue
                 # Note that 16 bytes are returned, so only show the first 4 bytes for the block.
                 print('Read block 4: 0x{0}'.format(binascii.hexlify(data[:4])))
-                # Example of writing data to block 4.  This is commented by default to
-                # prevent accidentally writing a card.
-                # Set first 4 bytes of block to 0xFEEDBEEF.
-                # data[0:4] = [0xFE, 0xED, 0xBE, 0xEF]
-                # # Write entire 16 byte block.
-                # pn532.mifare_classic_write_block(4, data)
-                # print('Wrote to block 4, exiting program!')
-                # # Exit the program to prevent continually writing to card.
-                # sys.exit(0)
                 time.sleep(15)
