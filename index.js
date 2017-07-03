@@ -14,7 +14,7 @@ function pn532(config) {
     switch (payload.code) {
       case 1:
         console.log("begning");
-        setTimeout(() => {
+        setTimeout(function (){
           this.begin();
         }, 5000);
         break;
@@ -31,20 +31,19 @@ function pn532(config) {
   this.pyshell.on("close", function(close) {
     console.log("close: " + close);
   });
-
-  this.begin = function begin() {
-    payload = {
-      command: "init",
-      CS: 16,
-      MOSI: 20,
-      MISO: 19,
-      SCLK: 21
-    };
-    console.log('this.begin');
-    this.pyshell.send(JSON.stringify(payload));
-  };
-
 }
+
+this.prototype.begin = function begin() {
+  payload = {
+    command: "init",
+    CS: 16,
+    MOSI: 20,
+    MISO: 19,
+    SCLK: 21
+  };
+  console.log('this.begin');
+  this.pyshell.send(JSON.stringify(payload));
+};
 
 
 module.exports = pn532;

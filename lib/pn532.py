@@ -19,7 +19,7 @@ print json.dumps({ 'message': 'begining', 'code': 1 })
 if __name__ == '__main__':
     while True:
         data = raw_input()
-        if data is None
+        if data is None:
             d = json.loads(data)
             command = d["command"]
             if(command == EXIT): #{"command":"exit"}
