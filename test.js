@@ -10,11 +10,6 @@ app.use(express.static(publicPath));
 const pn532 = require('./index');
 const PN532 = new pn532();
 
-setTimeout(() => {
-  console.log('timeout begin');
-  PN532.begin();
-}, 5000);
-
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
