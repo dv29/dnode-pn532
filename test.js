@@ -11,7 +11,8 @@ const pn532 = require('./index');
 const PN532 = new pn532();
 
 setTimeout(() => {
-  this.begin();
+  console.log('timeout begin');
+  PN532.begin();
 }, 5000);
 
 app.use(function (req, res, next) {

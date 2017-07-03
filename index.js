@@ -34,6 +34,7 @@ function pn532(config) {
       MISO: 19,
       SCLK: 21
     };
+    console.log('this.begin');
     this.pyshell.send(JSON.stringify(payload));
   };
 

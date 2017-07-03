@@ -14,7 +14,6 @@ MOSI = 23
 MISO = 24
 SCLK = 25
 
-time.sleep(2)
 print json.dumps({ 'message': 'begining', 'code': 1 })
 
 if __name__ == '__main__':
