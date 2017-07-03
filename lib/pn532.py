@@ -14,6 +14,7 @@ MOSI = 23
 MISO = 24
 SCLK = 25
 
+time.sleep(2)
 print json.dumps({ 'message': 'begining', 'code': 1 })
 
 if __name__ == '__main__':
@@ -58,4 +59,4 @@ if __name__ == '__main__':
                     continue
                 # Note that 16 bytes are returned, so only show the first 4 bytes for the block.
                 print('Read block 4: 0x{0}'.format(binascii.hexlify(data[:4])))
-                time.sleep(15)
+                time.sleep(0.5)
