@@ -14,6 +14,8 @@ MOSI = 23
 MISO = 24
 SCLK = 25
 
+print("begining")
+
 if __name__ == '__main__':
     while True:
         data = raw_input()

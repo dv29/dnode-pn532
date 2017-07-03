@@ -9,7 +9,9 @@ app.use(express.static(publicPath));
 
 var pn532 = require('./index')
 var PN532 = new pn532()
-PN532.begin();
+
+setTimeout(PN532.begin(), 5000);
+
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
