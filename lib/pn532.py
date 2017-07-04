@@ -15,6 +15,10 @@ MISO = int(sys.argv[3]) or 24
 SCLK = int(sys.argv[4]) or 25
 
 time.sleep(2)
+print(CS)
+print(MOSI)
+print(MISO)
+print(SCLK)
 print json.dumps({ 'message': 'init', 'code': 1 })
 # initialize pn532 python
 pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
