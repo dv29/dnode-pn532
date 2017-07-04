@@ -1,4 +1,4 @@
-var PythonShell = require('python-shell');
+const PythonShell = require('python-shell');
 const EventEmitter = require('events');
 const util = require('util');
 
@@ -42,12 +42,12 @@ function PN532(config) {
       SCLK: 21
     };
     console.log('this.begin');
-    this.pyshell.send(JSON.stringify(payload));
+    self.pyshell.send(JSON.stringify(payload) + '\n');
   };
 
   setTimeout(function(){
     self.begin();
-  }, 5000);
+  }, 8000);
 }
 util.inherits(PN532, EventEmitter)
 
