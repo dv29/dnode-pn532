@@ -12,7 +12,7 @@ SCLK = 25
 SCAN_TIMEOUT = 1
 
 if len(sys.argv) > 1:
-    SCAN_TIMEOUT = int(sys.argv[1]) 
+    SCAN_TIMEOUT = float(sys.argv[1])
 
 if len(sys.argv) > 2:
     CS   = int(sys.argv[2])

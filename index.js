@@ -11,7 +11,7 @@ function PN532(config) {
       MOSI: 20,
       MISO: 19,
       SCLK: 21,
-      SCAN_TIMEOUT: 1
+      SCAN_TIMEOUT: 1.5
     },
     config
   );
