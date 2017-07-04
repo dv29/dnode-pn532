@@ -36,7 +36,7 @@ print json.dumps({ 'message': 'firmware version', 'code': 3, 'data': {
 
 # Configure PN532 to communicate with MiFare cards.
 pn532.SAM_configuration()
-
+sys.stdout.flush()
 # Main loop to detect cards and read a block.
 while True:
     # Check if a card is available to read.
@@ -47,5 +47,6 @@ while True:
         print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
         'uid': binascii.hexlify(uid),
         }})
+        sys.stdout.flush()
 
     time.sleep(0.5)
