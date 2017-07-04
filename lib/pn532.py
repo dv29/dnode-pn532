@@ -14,19 +14,13 @@ MOSI = 23
 MISO = 24
 SCLK = 25
 
-print sys.argv[1:]
-
-if len(sys.argv) > 0:
+if len(sys.argv) > 1:
     CS   = int(sys.argv[1])
     MOSI = int(sys.argv[2])
     MISO = int(sys.argv[3])
     SCLK = int(sys.argv[4])
 
 time.sleep(2)
-print(CS)
-print(MOSI)
-print(MISO)
-print(SCLK)
 print json.dumps({ 'message': 'init', 'code': 1 })
 # initialize pn532 python
 pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
