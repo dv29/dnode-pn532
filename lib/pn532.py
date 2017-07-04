@@ -15,10 +15,10 @@ MISO = 24
 SCLK = 25
 
 if sys.argv:
-CS   = int(sys.argv[1])
-MOSI = int(sys.argv[2])
-MISO = int(sys.argv[3])
-SCLK = int(sys.argv[4])
+    CS   = int(sys.argv[1])
+    MOSI = int(sys.argv[2])
+    MISO = int(sys.argv[3])
+    SCLK = int(sys.argv[4])
 
 time.sleep(2)
 print(CS)
