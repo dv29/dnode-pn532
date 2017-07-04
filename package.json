@@ -1,13 +1,13 @@
 {
   "name": "node-pn532",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node library for pn532 for raspberry pi",
   "main": "index.js",
   "scripts": {
     "start": "node test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Deep Vora <deepvora92@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "express": "4.15.3",
