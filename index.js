@@ -10,13 +10,14 @@ function PN532(config) {
       CS: 16,
       MOSI: 20,
       MISO: 19,
-      SCLK: 21
+      SCLK: 21,
+      SCAN_TIMEOUT: 1
     },
     config
   );
 
   this.pyshell = new PythonShell("./lib/pn532.py", {
-    args: [options.CS, options.MOSI, options.MISO, options.SCLK]
+    args: [options.SCAN_TIMEOUT, options.CS, options.MOSI, options.MISO, options.SCLK]
   });
 
   // TODO: begin according to config provided

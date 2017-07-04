@@ -9,12 +9,16 @@ CS   = 18
 MOSI = 23
 MISO = 24
 SCLK = 25
+SCAN_TIMEOUT = 1
 
 if len(sys.argv) > 1:
-    CS   = int(sys.argv[1])
-    MOSI = int(sys.argv[2])
-    MISO = int(sys.argv[3])
-    SCLK = int(sys.argv[4])
+    SCAN_TIMEOUT = int(sys.argv[1]) 
+
+if len(sys.argv) > 2:
+    CS   = int(sys.argv[2])
+    MOSI = int(sys.argv[3])
+    MISO = int(sys.argv[4])
+    SCLK = int(sys.argv[5])
 
 time.sleep(2)
 
