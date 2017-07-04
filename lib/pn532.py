@@ -21,8 +21,8 @@ if __name__ == '__main__':
     while True:
         data = raw_input()
         d = json.loads(data)
-        print json.dumps(d)
         command = d["command"]
+        print (command)
         # if(command == EXIT): #{"command":"exit"}
         #     print("python: exit")
         #     break
