@@ -44,22 +44,6 @@ function PN532(config) {
   this.pyshell.on("close", function(close) {
     console.log("close: " + close);
   });
-  //
-  // this.begin = function() {
-  //   payload = {
-  //     command: "init",
-  //     CS: 16,
-  //     MOSI: 20,
-  //     MISO: 19,
-  //     SCLK: 21
-  //   };
-  //   console.log("this.begin");
-  //   self.pyshell.send(JSON.stringify(payload) + "\n");
-  // };
-  //
-  // setTimeout(function() {
-  //   self.begin();
-  // }, 8000);
 }
 util.inherits(PN532, EventEmitter);
 
