@@ -15,7 +15,7 @@ pn532.on('initialized', () => {
 });
 
 pn532.on('card_found', (cardData) => {
-  console.log('card found : ' + cardData);
+  console.log('card found : ', cardData);
 });
 
 app.use(function (req, res, next) {
