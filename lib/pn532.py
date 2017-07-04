@@ -9,10 +9,16 @@ import Adafruit_PN532 as PN532
 INIT = "init"
 EXIT = "exit"
 
-CS   = int(sys.argv[1]) or 18
-MOSI = int(sys.argv[2]) or 23
-MISO = int(sys.argv[3]) or 24
-SCLK = int(sys.argv[4]) or 25
+CS   = 18
+MOSI = 23
+MISO = 24
+SCLK = 25
+
+if sys.argv:
+CS   = int(sys.argv[1])
+MOSI = int(sys.argv[2])
+MISO = int(sys.argv[3])
+SCLK = int(sys.argv[4])
 
 time.sleep(2)
 print(CS)
