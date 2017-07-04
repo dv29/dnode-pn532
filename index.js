@@ -28,8 +28,11 @@ function PN532(config) {
       case 1:
         console.log("begning");
         break;
+      case 3:
+        self.emit("data", payload.data);
+        break;
       case 4:
-        self.emit("data", message.data);
+        self.emit("data", payload.data);
         break;
       default:
         console.log(payload);
