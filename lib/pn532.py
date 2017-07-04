@@ -36,17 +36,16 @@ print json.dumps({ 'message': 'firmware version', 'code': 3, 'data': {
 
 # Configure PN532 to communicate with MiFare cards.
 pn532.SAM_configuration()
-time.sleep(1)
 
 # Main loop to detect cards and read a block.
-# while True:
-#     # Check if a card is available to read.
-#     uid = pn532.read_passive_target()
-#     # Try again if no card is available.
-#     if uid is None:
-#         continue
-#
-#     print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
-#         'uid': binascii.hexlify(uid),
-#     }})
-#     time.sleep(0.5)
+while True:
+    # Check if a card is available to read.
+    uid = pn532.read_passive_target()
+    # Try again if no card is available.
+    if uid is None:
+        continue
+
+    print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
+        'uid': binascii.hexlify(uid),
+    }})
+    time.sleep(0.5)
