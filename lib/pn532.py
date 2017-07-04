@@ -14,6 +14,8 @@ MOSI = 23
 MISO = 24
 SCLK = 25
 
+print sys.argv[1:]
+
 if len(sys.argv) > 0:
     CS   = int(sys.argv[1])
     MOSI = int(sys.argv[2])
