@@ -4,7 +4,6 @@ const util = require("util");
 
 function PN532(config) {
   const self = this;
-  console.log("instance created");
 
   const options = Object.assign(
     {
@@ -22,7 +21,6 @@ function PN532(config) {
 
   // TODO: begin according to config provided
   this.pyshell.on("message", function(message) {
-    console.log("receive: " + message);
     const payload = JSON.parse(message);
     switch (payload.code) {
       case 1:
@@ -35,7 +33,6 @@ function PN532(config) {
         self.emit("card_found", payload.data);
         break;
       default:
-        console.log(payload);
         console.error("no code found");
     }
   });
@@ -45,7 +42,7 @@ function PN532(config) {
   });
 
   this.pyshell.on("close", function(close) {
-    console.log("close: " + close);
+    console.log("Connection to script closed : " + close);
   });
 }
 util.inherits(PN532, EventEmitter);
