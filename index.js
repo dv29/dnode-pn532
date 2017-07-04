@@ -15,8 +15,8 @@ function PN532(config) {
     },
     config
   );
-  console.log(__dirname);
-  this.pyshell = new PythonShell('./lib/pn532.py', {
+
+  this.pyshell = new PythonShell(__dirname + '/lib/pn532.py', {
     args: [options.SCAN_TIMEOUT, options.CS, options.MOSI, options.MISO, options.SCLK]
   });
 
