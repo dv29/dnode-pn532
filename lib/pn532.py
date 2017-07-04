@@ -9,10 +9,10 @@ import Adafruit_PN532 as PN532
 INIT = "init"
 EXIT = "exit"
 
-CS   = sys.argv[1] or 18
-MOSI = sys.argv[2] or 23
-MISO = sys.argv[3] or 24
-SCLK = sys.argv[4] or 25
+CS   = return sys.argv[1] or 18
+MOSI = return sys.argv[2] or 23
+MISO = return sys.argv[3] or 24
+SCLK = return sys.argv[4] or 25
 
 time.sleep(2)
 print json.dumps({ 'message': 'init', 'code': 1 })
