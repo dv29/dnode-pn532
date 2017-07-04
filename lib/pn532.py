@@ -38,14 +38,14 @@ print json.dumps({ 'message': 'firmware version', 'code': 3, 'data': {
 pn532.SAM_configuration()
 
 # Main loop to detect cards and read a block.
-# Check if a card is available to read.
-uid = pn532.read_passive_target()
-# Try again if no card is available.
-if uid is None:
-    continue
+while True:
+    # Check if a card is available to read.
+    uid = pn532.read_passive_target()
 
-print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
-'uid': binascii.hexlify(uid),
-}})
-time.sleep(0.5)
-# while True:
+    # Try again if no card is available.
+    if uid is not None:
+        print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
+        'uid': binascii.hexlify(uid),
+        }})
+
+    time.sleep(0.5)
