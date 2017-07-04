@@ -9,15 +9,16 @@ import Adafruit_PN532 as PN532
 INIT = "init"
 EXIT = "exit"
 
-CS   = 18
-MOSI = 23
-MISO = 24
-SCLK = 25
+CS   = sys.argv[1] or 18
+MOSI = sys.argv[2] or 23
+MISO = sys.argv[3] or 24
+SCLK = sys.argv[4] or 25
 
 time.sleep(2)
-print sys.argv[1:]
 print json.dumps({ 'message': 'init', 'code': 1 })
-pn532 = PN532.PN532(cs=(d["CS"] or CS), sclk=(d["SCLK"] or SCLK), mosi=(d["MOSI"] or MOSI), miso=(d["MISO"] or MISO))
+# initialize pn532 python
+pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
+# begin pn532 operations
 pn532.begin()
 # Get the firmware version from the chip and print(it out.)
 ic, ver, rev, support = pn532.get_firmware_version()
