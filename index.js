@@ -26,13 +26,13 @@ function PN532(config) {
     const payload = JSON.parse(message);
     switch (payload.code) {
       case 1:
-        console.log("begning");
+        self.emit("initialized", payload.data);
         break;
       case 3:
-        self.emit("data", payload.data);
+        self.emit("firmware_version", payload.data);
         break;
       case 4:
-        self.emit("data", payload.data);
+        self.emit("card_found", payload.data);
         break;
       default:
         console.log(payload);

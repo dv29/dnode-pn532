@@ -17,7 +17,6 @@ if len(sys.argv) > 1:
     SCLK = int(sys.argv[4])
 
 time.sleep(2)
-print json.dumps({ 'message': 'init', 'code': 1 })
 
 # initialize pn532 python
 pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
@@ -25,9 +24,11 @@ pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
 # begin pn532 operations
 pn532.begin()
 
+print json.dumps({ 'message': 'Initialized', 'code': 1 })
+
 # Get the firmware version from the chip and print(it out.)
 ic, ver, rev, support = pn532.get_firmware_version()
-print json.dumps({ 'message': 'firmware version', 'code': 3, 'data': {
+print json.dumps({ 'message': 'Firmware Version', 'code': 3, 'data': {
     'ic': ic,
     'ver': ver,
     'rev': rev,
@@ -44,7 +45,7 @@ while True:
 
     # Try again if no card is available.
     if uid is not None:
-        print json.dumps({ 'message': 'card found', 'code': 4, 'data': {
+        print json.dumps({ 'message': 'Card Found', 'code': 4, 'data': {
         'uid': binascii.hexlify(uid),
         }})
         sys.stdout.flush()

@@ -10,8 +10,12 @@ app.use(express.static(publicPath));
 const PN532 = require('./index');
 const pn532 = new PN532();
 
-pn532.on('data', (data) => {
-  console.log(data);
+pn532.on('initialized', () => {
+  console.log('pn532 initialized');
+});
+
+pn532.on('card_found', (cardData) => {
+  console.log('card found : ' + cardData);
 });
 
 app.use(function (req, res, next) {
