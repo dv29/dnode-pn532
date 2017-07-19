@@ -40,6 +40,7 @@ function PN532(config) {
   });
 
   this.pyshell.on('error', function(err) {
+		self.emit('error', err);
     console.error('err: ' + err);
   });
 
