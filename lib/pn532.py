@@ -54,4 +54,4 @@ while True:
         }})
         sys.stdout.flush()
 
-    time.sleep(SCAN_TIMEOUT)
+    time.sleep(0.5)
