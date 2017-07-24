@@ -41,12 +41,11 @@ function PN532(config) {
 
   this.pyshell.on('error', function(err) {
 		self.emit('error', err);
-    // console.error('err: ' + err);
+    console.error('err: ' + err);
   });
 
   this.pyshell.on('close', function(close) {
-		self.emit('close', close);
-    // console.log('Connection to script closed : ' + close);
+    console.log('Connection to script closed : ' + close);
   });
 }
 util.inherits(PN532, EventEmitter);
