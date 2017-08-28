@@ -9,13 +9,13 @@ import Adafruit_PN532 as PN532
 INIT = "init"
 EXIT = "exit"
 
-CS   = 16
-MOSI = 20
-MISO = 19
-SCLK = 21
+CS   = 8
+MOSI = 7
+MISO = 18
+SCLK = 22
 
 print("python begin")
-pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
+pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO,gpio = GPIO.RPiGPIOAdapter(RPi.GPIO,RPi.GPIO.BOARD))
 pn532.begin()
 # Get the firmware version from the chip and print(it out.)
 ic, ver, rev, support = pn532.get_firmware_version()
