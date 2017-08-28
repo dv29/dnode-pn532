@@ -45,6 +45,7 @@ function PN532(config) {
   });
 
   this.pyshell.on('close', function(close) {
+		self.emit('close', close);
     console.log('Connection to script closed : ' + close);
   });
 }
