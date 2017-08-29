@@ -7,7 +7,6 @@ import Adafruit_PN532 as PN532
 import Adafruit_GPIO as GPIO
 import RPi.GPIO
 
-
 CS   = 8
 MOSI = 7
 MISO = 18

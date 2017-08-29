@@ -5,8 +5,7 @@ const util = require('util');
 function PN532(config) {
   const self = this;
 
-  const options = Object.assign(
-    {
+  const options = Object.assign({
       CS: 8,
       MOSI: 7,
       MISO: 18,
