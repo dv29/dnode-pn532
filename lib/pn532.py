@@ -3,14 +3,21 @@ import sys
 import time
 import PN532
 
-pn532 = PN532.PN532("/dev/ttyUSB0",115200)
+SCAN_TIMEOUT = 1
+
+if len(sys.argv) > 1:
+    SCAN_TIMEOUT = float(sys.argv[1])
+
+if len(sys.argv) > 2:
+    INTERFACE = sys.argv[2]
+
+time.sleep(2)
+
+pn532 = PN532.PN532(INTERFACE,115200)
 
 pn532.begin()
 
 pn532.SAM_configuration()
-
-# Get the firmware version from the chip and print(it out.)
-ic, ver, rev, support = pn532.get_firmware_version()
 
 while True:
     # Check if a card is available to read.
