@@ -22,7 +22,7 @@ while True:
     uid = pn532.read_passive_target()
 
     # Try again if no card is available.
-    if uid is not None:
+    if uid is "no_card":
         print json.dumps({ 'message': 'Card Found', 'code': 4, 'data': {
         'uid': binascii.hexlify(uid),
         }})
