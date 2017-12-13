@@ -2,6 +2,7 @@ import binascii
 import sys
 import time
 import PN532
+import json
 
 SCAN_TIMEOUT = 1
 
