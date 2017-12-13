@@ -23,9 +23,11 @@ while True:
 
     # Try again if no card is available.
     if uid is "no_card":
-        print json.dumps({ 'message': 'Card Found', 'code': 4, 'data': {
-        'uid': binascii.hexlify(uid),
-        }})
-        sys.stdout.flush()
+        continue
+
+    print json.dumps({ 'message': 'Card Found', 'code': 4, 'data': {
+    'uid': binascii.hexlify(uid),
+    }})
+    sys.stdout.flush()
 
     time.sleep(SCAN_TIMEOUT)
