@@ -153,13 +153,11 @@ class PN532(object):
         self.status = False
         self.message = ""
 
-        print "Port:"+uart_port
         try:
             self.ser = serial.Serial(uart_port, uart_baudrate)
             self.ser.timeout=2;
             self.status = True
         except serial.SerialException:
-            print "Opening port error."
             self.status = False
 
     def _uint8_add(self, a, b):
