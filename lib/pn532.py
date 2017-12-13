@@ -9,7 +9,7 @@ if len(sys.argv) > 1:
     SCAN_TIMEOUT = float(sys.argv[1])
 
 if len(sys.argv) > 2:
-    INTERFACE = int(sys.argv[2])
+    INTERFACE = sys.argv[2]
 
 time.sleep(2)
 
