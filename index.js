@@ -6,10 +6,7 @@ function PN532(config) {
   const self = this;
 
   const options = Object.assign({
-      CS: 8,
-      MOSI: 7,
-      MISO: 18,
-      SCLK: 22,
+			INTERFACE: '/dev/ttyS2'
       SCAN_TIMEOUT: 1.5
     },
     config
