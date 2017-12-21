@@ -5,6 +5,7 @@ import PN532
 import json
 
 SCAN_TIMEOUT = 1
+INTERFACE = "/dev/ttyUSB0"
 
 if len(sys.argv) > 1:
     SCAN_TIMEOUT = float(sys.argv[1])
@@ -18,7 +19,11 @@ pn532 = PN532.PN532(INTERFACE,115200)
 
 pn532.begin()
 
+print json.dumps({ 'message': 'Initialized', 'code': 1 })
+
 pn532.SAM_configuration()
+
+sys.stdout.flush()
 
 while True:
     # Check if a card is available to read.

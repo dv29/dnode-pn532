@@ -15,6 +15,10 @@ function PN532(config) {
 	this.pyshell = new PythonShell('pn532.py', {
 		scriptPath: __dirname + '/lib',
 		args: [options.SCAN_TIMEOUT, options.INTERFACE]
+	}, (err) => {
+		if (err) {
+			self.emit('error', err);
+		}
 	});
 
 	// TODO: begin according to config provided
