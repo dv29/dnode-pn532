@@ -2,7 +2,7 @@ import binascii
 import sys
 import time
 import json
-from PN532 import PN532
+from PN532 import PN532 as PN532
 
 SCAN_TIMEOUT = 1
 INTERFACE = "/dev/ttyS2"
@@ -15,7 +15,7 @@ if len(sys.argv) > 2:
 
 time.sleep(2)
 
-pn532 = PN532.PN532(INTERFACE,115200)
+pn532 = PN532(INTERFACE,115200)
 
 pn532.begin()
 
