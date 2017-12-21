@@ -1,11 +1,11 @@
 import binascii
 import sys
 import time
-import PN532
 import json
+from PN532 import PN532
 
 SCAN_TIMEOUT = 1
-INTERFACE = "/dev/ttyUSB0"
+INTERFACE = "/dev/ttyS2"
 
 if len(sys.argv) > 1:
     SCAN_TIMEOUT = float(sys.argv[1])
