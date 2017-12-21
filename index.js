@@ -23,19 +23,24 @@ function PN532(config) {
 
 	// TODO: begin according to config provided
 	this.pyshell.on('message', function(message) {
-		const payload = JSON.parse(message);
-		switch (payload.code) {
-			case 1:
-				self.emit('initialized', payload.data);
-				break;
-			case 3:
-				self.emit('firmware_version', payload.data);
-				break;
-			case 4:
-				self.emit('card_found', payload.data);
-				break;
-			default:
-				console.error('no code found');
+		try {
+			const payload = JSON.parse(message);
+			switch (payload.code) {
+				case 1:
+					self.emit('initialized', payload.data);
+					break;
+				case 3:
+					self.emit('firmware_version', payload.data);
+					break;
+				case 4:
+					self.emit('card_found', payload.data);
+					break;
+				default:
+					self.emit('invalid_code', payload.data);
+					break;
+			}
+		} catch (e) {
+				console.log(message);
 		}
 	});
 
